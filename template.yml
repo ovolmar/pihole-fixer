@@ -1,4 +1,6 @@
-# Exercise - Rollback
+# Exercise - Rollback. 
+# 
+# 
 AWSTemplateFormatVersion: 2010-09-09
 Description: Blue / Green Testing
 Resources:
@@ -8,7 +10,7 @@ Resources:
       SecurityGroups:
         - !Ref InstanceSecurityGroup
       KeyName: voltron-1
-      ImageId: 'ami-01fc429821bf1f4b4' 
+      ImageId: 'ami-0022f774911c1d690'
       InstanceType: t2.micro
 
   InstanceSecurityGroup:
