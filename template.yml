@@ -7,12 +7,10 @@ Resources:
     Properties:
       SecurityGroups:
         - !Ref InstanceSecurityGroup
-      # Change this, as applicable to you      
       KeyName: voltron-1
-      # Change this, as applicable to you
-      # You may need to find out what instance types are available in your region - use https://cloud-images.ubuntu.com/locator/ec2/
       ImageId: 'ami-01fc429821bf1f4b4' 
       InstanceType: t2.micro
+
   InstanceSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
