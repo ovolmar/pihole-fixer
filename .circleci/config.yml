@@ -7,23 +7,23 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
-      - run: echo " ** In work ** "
+      - run: echo " Something is about to happen here. "
 
-    create_infra:
-      docker:
-        - image: amazon/aws-cli
-      steps:
-        - checkout
-        - run:
-            name: Running CF Stack
-            command: |
-              aws cloudformation deploy \
-                --template-file template.yml
-                --stack-name testing-stack-${CICLE_WORKFLOW_ID:0:5} \
-                --region us-east-1
+  create_infrastructure:
+    docker:
+      - image: amazon/aws-cli
+    steps:
+      - checkout
+      - run:
+          name: Running CF Stack
+          command: |
+            aws cloudformation deploy \
+              --template-file template.yml
+              --stack-name testing-stack-${CICLE_WORKFLOW_ID:0:5} \
+              --region us-east-1
 
-  workflow:
-    myWorkflow:
-      jobs:
-        - build
-        - create_infra
+workflows:
+  myWorkflow:
+    jobs:
+      - build
+      - create_infrastructure
