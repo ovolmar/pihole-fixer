@@ -18,7 +18,7 @@ jobs:
           name: Running CF Stack
           command: |
             aws cloudformation deploy \
-              --template-file template.yml
+              --template-file template.yml \
               --stack-name testing-stack-${CICLE_WORKFLOW_ID:0:5} \
               --region us-east-1
 
